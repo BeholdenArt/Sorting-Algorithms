@@ -3,8 +3,6 @@ import sys
 import pygame
 pygame.init()
 
-GREY = (197, 197, 197)
-
 win_size = (WIDTH, HEIGHT) = 900, 700
 
 screen = pygame.display.set_mode(win_size)
@@ -30,7 +28,7 @@ done_text_rect = (100, 100)
 
 
 while True:
-    screen.fill(pygame.color.Color('Black'))
+    screen.fill(pygame.color.Color('White'))
     clock.tick(10)
     screen.blit(heading_text, heading_text_rect)
 
@@ -46,7 +44,7 @@ while True:
     counter += 1
 
     for i in range(len(h_arr)):
-        pygame.draw.rect(screen, color[i], pygame.Rect(int(i*n), HEIGHT - h_arr[i], n, h_arr[i]))
+        pygame.draw.rect(screen, pygame.Color("Black"), pygame.Rect(int(i*n), HEIGHT - h_arr[i], n, h_arr[i]))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
