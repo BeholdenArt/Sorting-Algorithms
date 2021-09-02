@@ -1,7 +1,6 @@
 import random
 import sys
 import pygame
-
 pygame.init()
 
 BLACK = pygame.Color("Black")
@@ -12,7 +11,7 @@ PINK = pygame.Color("Pink")
 
 win_size = (WIDTH, HEIGHT) = 900, 700
 screen = pygame.display.set_mode(win_size)
-pygame.display.set_caption("Bubble Sort v2.0")
+pygame.display.set_caption("Insertion Sort v2.0")
 clock = pygame.time.Clock()
 
 bar_height = []
@@ -20,13 +19,13 @@ bar_color = []
 n = 35
 bar_width = 31
 
-HEADING_TEXT = pygame.font.SysFont("Consolas", 40).render("BUBBLE SORT", True, WHITE)
+HEADING_TEXT = pygame.font.SysFont("Consolas", 40).render("INSERTION SORT", True, WHITE)
 HEADING_BOX = HEADING_TEXT.get_rect(center=(WIDTH // 2, 30))
 INFO_TEXT = pygame.font.SysFont("Consolas", 20).render("(Press Space)", True, WHITE)
 INFO_BOX = INFO_TEXT.get_rect(center=(WIDTH // 2, 60))
 
-for i in range(WIDTH // n):
-    bar_height.append(random.randint(100, HEIGHT - 150))
+for i in range(WIDTH//n):
+    bar_height.append(random.randint(100, HEIGHT-150))
     bar_color.append(WHITE)
 
 
@@ -43,24 +42,28 @@ def draw_everything():
 
 
 def main():
-    counter = 0
-    while True:
+    counter = 1
 
+    while True:
         screen.fill(BLACK)
+        draw_everything()
 
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_SPACE]:
             if counter < len(bar_height):
-                for j in range(0, len(bar_height) - counter - 1):
-                    if bar_height[j] < bar_height[j + 1]:
-                        bar_color[j] = bar_color[j + 1] = RED
-                        draw_everything()
-                        bar_height[j], bar_height[j + 1] = bar_height[j + 1], bar_height[j]
-                        bar_color[j] = bar_color[j + 1] = WHITE
-                bar_color[len(bar_height) - counter - 1] = GREEN
+                key = bar_height[counter]
+                j = counter - 1
+                while j >= 0 and key < bar_height[j]:
+                    bar_color[j+1] = bar_color[j] = GREEN
+                    bar_height[j+1] = bar_height[j]
+                    j -= 1
+                bar_height[j+1] = key
+                bar_color[counter] = RED
                 counter += 1
-        else:
-            draw_everything()
+
+            else:
+                bar_color[counter-1] = GREEN
+                draw_everything()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

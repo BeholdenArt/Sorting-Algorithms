@@ -29,7 +29,7 @@ for i in range(WIDTH // n):
 
 
 def draw_everything():
-    clock.tick(60)
+    clock.tick(10)
     screen.blit(HEADING_TEXT, HEADING_BOX)
     screen.blit(INFO_TEXT, INFO_BOX)
     pygame.draw.line(screen, WHITE, (0, 80), (WIDTH, 80), 10)
@@ -51,7 +51,6 @@ def main():
 
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_SPACE]:
-
             if counter < len(bar_height):
                 minimum = counter
                 for j in range(counter + 1, len(bar_height)):
@@ -59,9 +58,7 @@ def main():
                         minimum = j
                         bar_color[j] = RED
                         draw_everything()
-                        pygame.time.wait(100)
                     bar_color[minimum] = WHITE
-                    draw_everything()
 
                 bar_height[minimum], bar_height[counter] = bar_height[counter], bar_height[minimum]
                 bar_color[counter] = GREEN
