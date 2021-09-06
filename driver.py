@@ -1,6 +1,6 @@
 import tkinter
 import selectionSort, bubbleSort, insertionSort, quickSort
-import base
+
 
 def on_click(txt):
     if txt == "s":
@@ -16,7 +16,7 @@ root = tkinter.Tk()
 root.title("SORTING ALGORITHM VISUALIZER")
 root.resizable(0, 0)
 root.geometry("450x450")
-heading_img = tkinter.PhotoImage(file= "heading.png")
+heading_img = tkinter.PhotoImage(file="images/heading.png")
 
 
 heading_label = tkinter.Label(root, image= heading_img)
