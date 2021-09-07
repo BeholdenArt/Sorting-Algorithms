@@ -1,5 +1,6 @@
 
 <h2 align= "center"> 
+  <img src="images/heading.gif" alt= "logo"> <br>
   Sorting Algorithm Visualizer 
 </h2>
 <p align= "center">
