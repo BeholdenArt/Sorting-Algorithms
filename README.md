@@ -1,7 +1,6 @@
 
 <h2 align= "center"> 
-  <img src="images/heading.gif" alt= "logo"> <br>
-  Sorting Algorithm Visualizer 
+  <img src="images/readme-heading.png" alt= "logo"> <br>
 </h2>
 <p align= "center">
   Visualizing sorting algorithms such as Selection Sort, Bubble Sort, Insertion Sort and Quick Sort.
